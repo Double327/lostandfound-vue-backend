@@ -1,0 +1,34 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lostandfound?serverTimezone=UTC
+    username: root
+    password: mysql0327LGSsr
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+
+  jackson:
+    date-format: java.text.SimpleDateFormat
+    time-zone: GMT+8
+
+  messages:
+    basename: i18n/message
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

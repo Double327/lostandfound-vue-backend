@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="cn.doublefloat.lostandfound.project.system.mapper.UserMapper">
+    <resultMap id="userResult" type="cn.doublefloat.lostandfound.project.system.domain.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="nickname" property="nickname"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="sex" property="sex"/>
+        <result column="avatar" property="avatar"/>
+        <result column="password" property="password"/>
+        <result column="status" property="status"/>
+        <result column="login_ip" property="loginIp"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="delete_by" property="deleteBy"/>
+        <result column="delete_time" property="deleteTime"/>
+    </resultMap>
+    <select id="list" resultMap="userResult">
+        SELECT * FROM user WHERE 1 = 1
+        <if test="id != null">
+            AND id = #{id}
+        </if>
+        <if test="username != null">
+            AND username LIKE concat('%', #{username}, '%')
+        </if>
+        <if test="nickname != null">
+            AND nickname LIKE concat('%', #{nickname}, '%')
+        </if>
+        <if test="sex != null">
+            AND sex = #{sex}
+        </if>
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+    </select>
+</mapper>

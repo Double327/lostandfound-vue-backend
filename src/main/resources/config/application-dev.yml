@@ -1,0 +1,18 @@
+token:
+  header: Authorization
+  secret: abcdefghijklmnopqrstuvwxyz
+  expireTime: 30
+
+
+mybatis-plus:
+  mapper-locations: classpath:mybatis/project/**/*Mapper.XML
+
+logging:
+  level:
+    root: info
+spring:
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    timeout: 1000
